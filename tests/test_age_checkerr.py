@@ -1,3 +1,5 @@
+import pytest
+from lib.age_checkerr import *
 # Age Checker Function Design Recipe
 
 ## 1. Describe the Problem
@@ -34,3 +36,12 @@ def age_checker(date)
 
     Side effects: (state any side effects)
 """
+
+"""
+Given date "2015-12-01"
+It returns "Access denied!"
+"""
+def test_given_date_under_16_returns_access_denied():
+    actual = age_checker('2015-12-01')
+    expected = 'Access denied!'
+    assert actual == expected
