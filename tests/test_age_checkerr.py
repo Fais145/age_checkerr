@@ -55,3 +55,11 @@ def test_given_date_above_16_returns_access_granted():
     expected = 'Access granted!'
     assert actual == expected
 
+"""
+Given date "2009-12-03"
+It returns "Access granted!"
+"""
+def test_given_date_exactly_16_returns_access_granted():
+    actual = age_checker('2009-12-03')
+    expected = 'Access granted!'
+    assert actual == expected

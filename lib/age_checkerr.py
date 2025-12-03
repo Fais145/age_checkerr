@@ -1,12 +1,7 @@
 from datetime import datetime
 
-def age_checker(date_string):
-    date = datetime.strptime(date_string, '%Y-%m-%d')
-    age = datetime.now() - date
-    print(age)
-    return 'Access denied!'
-
-
-def calculate_age(born):
-    today = date.today()
-    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+def age_checker(birthday_string):
+    birthday = datetime.strptime(birthday_string, '%Y-%m-%d')
+    today = datetime.today()
+    age = today.year - birthday.year - ((today.month, today.day) < (birthday.month, birthday.day))
+    return 'Access granted!' if age >= 16 else 'Access denied!' 
