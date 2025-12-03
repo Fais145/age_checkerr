@@ -1,12 +1,11 @@
 from datetime import datetime
+import re
 
-def age_checker(date_string):
-    date = datetime.strptime(date_string, '%Y-%m-%d')
-    age = datetime.now() - date
-    print(age)
-    return 'Access denied!'
-
-
-def calculate_age(born):
-    today = date.today()
-    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+def age_checker(birthday_string):
+    if not re.match("^\d{4}-\d{2}-\d{2}$",birthday_string):
+        raise Exception("Please insert date in YYYY-MM-DD")
+    
+    birthday = datetime.strptime(birthday_string, '%Y-%m-%d')
+    today = datetime.today()
+    age = today.year - birthday.year - ((today.month, today.day) < (birthday.month, birthday.day))
+    return 'Access granted!' if age >= 16 else 'Access denied!' 
