@@ -63,3 +63,15 @@ def test_given_date_exactly_16_returns_access_granted():
     actual = age_checker('2009-12-03')
     expected = 'Access granted!'
     assert actual == expected
+
+"""
+Given an input in wrong format"
+It raises an error"
+"""
+def test_given_date_wrong_format_raises_error():
+    with pytest.raises(Exception) as error:
+        age_checker('2009-12-3')
+    actual = str(error.value)
+    expected = 'Please insert date in YYYY-MM-DD'
+    assert actual == expected
+
